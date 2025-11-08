@@ -1,0 +1,13 @@
+FROM python:3.14-alpine
+
+WORKDIR /app
+
+COPY requirements/base.txt ./requirements/base.txt
+
+RUN pip install --no-cache-dir -r requirements/base.txt
+
+COPY . . 
+
+EXPOSE 8000
+
+CMD ["fastapi", "dev", "src/main.py", "--host", "0.0.0.0", "--port", "8000"]
