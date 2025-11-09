@@ -6,6 +6,12 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  const fetchData = async () => {
+    const response = await fetch("http://127.0.0.1:3050/")
+    const data = await response.json()
+    console.log(data)
+  }
+	
   return (
     <>
       <div>
@@ -16,9 +22,9 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Testing Hot Reload</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={fetchData}>
           count is {count}
         </button>
         <p>
